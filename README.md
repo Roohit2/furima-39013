@@ -20,7 +20,7 @@
 
 * belongs_to :user
 
-## exhibit table
+## items table
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
@@ -40,7 +40,18 @@
 
 - belongs_to :user
 
-## comments table
+##  Purchase Records
+
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| comment     | text       | null: false                    |
+
+### Association
+
+- has_many : comments
+
+
+##  Shipping Addresses
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
