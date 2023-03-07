@@ -1,24 +1,51 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| email              | string              | null: false, unique: true |
+| encrypted_password | string              | null: false               |
+| name               | string              | null: false               |
+| profile            | text                | null: false               |
+| last_name          | text                | null: false               |
+| first_name         | text                | null: false               |
+| last_name_kana     | text                | null: false               |
+| first_name_kana    | text                | null: false               |
+| birth_year         | text                | null: false               |
+| birth_month        | text                | null: false               |
+| birth_day          | text                | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+* belongs_to :user
 
-* Configuration
+## exhibit table
 
-* Database creation
+| Column                              | Type       | Options                        |
+|-------------------------------------|------------|--------------------------------|
+| title                               | string     | null: false                    |
+| catch_copy                          | text       | null: false                    |
+| concept                             | text       | null: false                    |
+| user                                | references | null: false, foreign_key: true |
+| description                         | text       | null: false,                   |
+| category                            | text       | null: false,                   |
+| status                              | text       | null: false,                   |
+| delivery_pay_which                  | references | null: false,                   |
+| delivery_area                       | references | null: false,                   |
+| delivery_days                       | references | null: false,                   |
+| price                               | references | null: false,                   |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments table
 
-* Deployment instructions
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| comment     | text       | null: false                    |
 
-* ...
+### Association
+
+- has_many : comments
