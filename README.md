@@ -1,13 +1,11 @@
 # DB 設計
 
 ## users table
-
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
-| email              | string              | null: false, unique: true |
-| encrypted_password | string              | null: false               |
-| name               | string              | null: false               |
-| profile            | text                | null: false               |
+| nickname           | string              | null: false               |
+| mail_address       | string              | null: false, unique: true |
+| password           | string              | null: false               |
 | last_name          | text                | null: false               |
 | first_name         | text                | null: false               |
 | last_name_kana     | text                | null: false               |
@@ -17,46 +15,43 @@
 | birth_day          | text                | null: false               |
 
 ### Association
+ has_many   : items
 
-* belongs_to :user
 
 ## items table
-
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| title                               | string     | null: false                    |
-| catch_copy                          | text       | null: false                    |
-| concept                             | text       | null: false                    |
-| user                                | references | null: false, foreign_key: true |
-| description                         | text       | null: false,                   |
-| category                            | text       | null: false,                   |
-| status                              | text       | null: false,                   |
-| delivery_pay_which                  | references | null: false,                   |
-| delivery_area                       | references | null: false,                   |
-| delivery_days                       | references | null: false,                   |
-| price                               | references | null: false,                   |
+| name                                | string     | null: false                    |
+| image                               | text       | null: false                    |
+| price                               | text       | null: false                    |
+| delivery_cos                        | text       | null: false                    |
+| delivery_prefecture                 | text       | null: false                    |
+| delivery_days                       | text       | null: false                    |
+| category                            | text       | null: false                    |
+| status                              | text       | null: false                    |
 
 ### Association
 
-- belongs_to :user
+ has_one  : purchaseRecords
+ has_many : deliveryInfo
 
-##  Purchase Records
 
+##  purchaseRecords table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| comment     | text       | null: false                    |
+| name        | string     | null: false, foreign_key: true |
+| item        | text       | null: false, foreign_key: true |
+
+##  deliveryInfo table
+| Column          | Type       | Options                        |
+|-------------    |------------|--------------------------------|
+| postal_code     | text       | null: false                    |
+| prefecture      | string     | null: false                    |
+| city            | string     | null: false                    |
+| house_number    | string     | null: false                    |
+| building_name   | string     | null: false                    |
+| phone_number    | text       | null: false                    |
+
 
 ### Association
-
-- has_many : comments
-
-
-##  Shipping Addresses
-
-| Column      | Type       | Options                        |
-|-------------|------------|--------------------------------|
-| comment     | text       | null: false                    |
-
-### Association
-
 - has_many : comments
