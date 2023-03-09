@@ -40,7 +40,6 @@
 | Column              | Type       | Options                        |
 |---------------------|------------|--------------------------------|
 | user                | references | null: false, foreign_key: true |
-| deliveryInformation | references | null: false, foreign_key: true |
 | item                | references | null: false, foreign_key: true |
 
 ### Association
