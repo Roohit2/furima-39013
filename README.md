@@ -10,7 +10,7 @@
 | first_name         | string              | null: false                    |
 | last_name_kana     | string              | null: false                    |
 | first_name_kana    | string              | null: false                    |
-| YYYYMMDD           | reference           | null: false, foreign_key: true |
+| birth_day          | integer             | null: false                    |
 
 ### Association
  has_many   : items
@@ -22,12 +22,13 @@
 |-------------------------------------|------------|--------------------------------|
 | name                                | string     | null: false                    |
 | description                         | text       | null: false                    |
-| category_id                         | reference  | null: false, foreign_key: true |
-| status_id                           | reference  | null: false, foreign_key: true |
-| delivery_cost_id                    | reference  | null: false, foreign_key: true |
-| delivery_prefecture_id              | reference  | null: false, foreign_key: true |
-| delivery_days_id                    | reference  | null: false, foreign_key: true |
+| category_id                         | string     | null: false                    |
+| status_id                           | string     | null: false                    |
+| delivery_cost_id                    | string     | null: false                    |
+| delivery_prefecture_id              | string     | null: false                    |
+| delivery_days_id                    | string     | null: false                    |
 | price                               | integer    | null: false                    |
+| exhibitor                           | string     | null: false,foreign_key: true  |
 
 
 ### Association
@@ -37,18 +38,18 @@
 ##  purchaseRecords table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| who         | string     | null: false, foreign_key: true |
-| bought_item | text       | null: false, foreign_key: true |
+| user_id     | reference  | null: false, foreign_key: true |
+| bought_id   | string     | null: false                    |
 
 ### Association
-- has_one : deliveryInformation 
+ has_one : deliveryInformation 
 
 
 ##  deliveryInformations table
 | Column          | Type       | Options                       |
 |-------------    |------------|-------------------------------|
 | postal_code     | string     | null: false                   |
-| prefecture_id   | reference  | null: false foreign_key: true |
+| prefecture_id   | string     | null: false                   |
 | city            | string     | null: false                   |
 | house_number    | string     | null: false                   |
 | building_name   | string     |                               |
