@@ -26,7 +26,7 @@
 | status_id                           | integer    | null: false                    |
 | delivery_cost_id                    | integer    | null: false                    |
 | delivery_prefecture_id              | integer    | null: false                    |
-| delivery_days_id                    | integer    | null: false                    |
+| delivery_day_id                     | integer    | null: false                    |
 | price                               | integer    | null: false                    |
 | user                                | references | null: false,foreign_key: true  |
 
@@ -41,9 +41,12 @@
 |---------------------|------------|--------------------------------|
 | user                | references | null: false, foreign_key: true |
 | deliveryInformation | references | null: false, foreign_key: true |
+| item                | references | null: false, foreign_key: true |
 
 ### Association
- has_one : deliveryInformation 
+ has_one    : deliveryInformation 
+ belongs_to : item
+ belongs_to : user
 
 
 ##  deliveryInformations table
