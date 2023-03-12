@@ -7,8 +7,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def create
-    Item.create(item_params)
+  def edit
+  end
+
+  def destoroy
   end
 
   private
