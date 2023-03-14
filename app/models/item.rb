@@ -13,4 +13,6 @@ class Item < ApplicationRecord
   validates :delivery_prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"}
 
+  #has_one_attached :image
+
 end
