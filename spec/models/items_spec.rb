@@ -2,6 +2,8 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
+    
+
   end
 
   describe '商品出品' do
@@ -16,9 +18,9 @@ RSpec.describe Item, type: :model do
   context '新規登録できない時' do
 
     it 'imageが空では登録できない' do
-      @item.image = ''
+      @item.image = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include "Image day can't be blank"
+      expect(@item.errors.full_messages).to include "Image can't be blank"
     end
 
     it 'nameが空では登録できない' do
@@ -64,21 +66,21 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが空では登録できない' do
-      @item.praice = ''
+      @item.price = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include "Price day can't be blank"
+      expect(@item.errors.full_messages).to include "Price can't be blank"
     end
 
     it 'priceが半角数字以外では登録できない' do
-      @item.praice = '３００'
+      @item.price = '３００'
       @item.valid?
-      expect(@item.errors.full_messages).to include "Price is invalid"
+      expect(@item.errors.full_messages).to include "Price is not a number"
     end
 
     it 'priceが300～99999以内でなければ登録できない' do
-      @item.praice = '280'
+      @item.price = '280'
       @item.valid?
-      expect(@item.errors.full_messages).to include "Price is invalid"
+      expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
     end
 
 
