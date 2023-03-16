@@ -129,7 +129,8 @@
     <ul class='item-lists'>
 
   <%#  条件分岐 %>
-  <% unless @item.blank? %>
+
+    <% unless @items.blank? %>
 
    <% @items.each do |item| %>
       <li class='list'>
