@@ -27,7 +27,7 @@
     </div>
 
     <% if user_signed_in? %>
-    <% if @item.user == user %>
+    <% if @item.user == current_user %>
 
     <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
     <p class="or-text">or</p>
@@ -38,6 +38,7 @@
     <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
 
       <% end %>
+
 
 
     <div class="item-explain-box">
