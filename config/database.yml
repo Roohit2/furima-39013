@@ -23,5 +23,5 @@ production:
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
 
-# username: <%= ENV['MY_APP_DATABASE_USERNAME'] %>
-# password: <%= ENV['MY_APP_DATABASE_PASSWORD'] %>
+ username: <%= ENV['MY_APP_DATABASE_USERNAME'] %>
+ password: <%= ENV['MY_APP_DATABASE_PASSWORD'] %>
