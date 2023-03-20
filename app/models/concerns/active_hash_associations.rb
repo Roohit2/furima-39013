@@ -1,7 +1,7 @@
-#module ActiveHashAssociations
-#  extend ActiveSupport::Concern
+module ActiveHashAssociations
+ extend ActiveSupport::Concern
 
-#  included do
-#    extend ActiveHash::Associations::ActiveRecordExtensions
-#  end
-#end
+ included do
+   extend ActiveHash::Associations::ActiveRecordExtensions
+ end
+end
