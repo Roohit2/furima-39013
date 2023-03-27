@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :order_params]
   before_action :set_item, only: [:index, :create]
-  before_action :toppage_transition, only: [:index :create]
+  before_action :toppage_transition, only: [:index, :create]
   before_action :sold_out
 
   def index
