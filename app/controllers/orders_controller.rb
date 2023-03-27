@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :order_params]
   before_action :set_item, only: [:index, :create]
-  before_action :topppage_transition, only: [:index]
+  before_action :toppage_transition, only: [:index :edit]
+  before_action :sold_out
 
   def index
     @order_address = OrderAddress.new
@@ -37,8 +38,13 @@ class OrdersController < ApplicationController
       )
   end
 
-  def topppage_transition
+  def toppage_transition
     return if @item.order.nil? && current_user.id != @item.user_id
+    redirect_to root_path
+  end
+
+  def sold_out
+    return if @item.order.nil?
     redirect_to root_path
   end
 
