@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :order_params]
   before_action :set_item, only: [:index, :create]
+  before_action :topppage_transition, only: [:index]
 
   def index
     @order_address = OrderAddress.new
@@ -34,6 +35,11 @@ class OrdersController < ApplicationController
         card: order_params[:token],    
         currency: 'jpy'                 
       )
+  end
+
+  def topppage_transition
+    return if @item.order.nil? && current_user.id != @item.user_id
+    redirect_to root_path
   end
 
 end
