@@ -66,6 +66,7 @@ gem "image_processing", ">= 1.2"
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'payjp'
+gem 'rails-i18n'
 
 group :production do
   gem 'pg'
